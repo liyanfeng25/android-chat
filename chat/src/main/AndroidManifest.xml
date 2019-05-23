@@ -49,6 +49,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="cn.wildfire.chat.app.login.AuthCodeActivity"></activity>
 
         <meta-data
             android:name="android.max_aspect"
