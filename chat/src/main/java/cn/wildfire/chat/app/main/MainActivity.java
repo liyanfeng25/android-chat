@@ -153,8 +153,8 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
         contactFragment = new ContactFragment();
         discoveryFragment = new DiscoveryFragment();
         meFragment = new MeFragment();
-        mFragmentList.add(conversationListFragment);
         mFragmentList.add(contactFragment);
+        mFragmentList.add(conversationListFragment);
         mFragmentList.add(discoveryFragment);
         mFragmentList.add(meFragment);
         mVpContent.setAdapter(new HomeFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList));
@@ -162,10 +162,10 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.conversation_list:
+                case R.id.contact:
                     mVpContent.setCurrentItem(0);
                     break;
-                case R.id.contact:
+                case R.id.conversation_list:
                     mVpContent.setCurrentItem(1);
                     break;
                 case R.id.discovery:
