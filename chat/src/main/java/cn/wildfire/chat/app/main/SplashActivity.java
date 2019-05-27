@@ -29,7 +29,10 @@ import cn.wildfirechat.chat.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static String[] permissions = {Manifest.permission.READ_PHONE_STATE,
+    private static String[] permissions = {
+            //读取手机状态
+            Manifest.permission.READ_PHONE_STATE,
+
             // 位置
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -38,30 +41,31 @@ public class SplashActivity extends AppCompatActivity {
             //相机、麦克风
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CAMERA,
+
             //存储空间
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
     };
+
+    //悬浮窗的权限请求
     private static final int REQUEST_CODE_DRAW_OVERLAY = 101;
 
-    private SharedPreferences sharedPreferences;
     private String id;
     private String token;
+    private SharedPreferences sharedPreferences;
 
-    private void hideStatusBar() {
-        View decorView = getWindow().getDecorView();
-        // Hide the status bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
+    @TargetApi(Build.VERSION_CODES.M)
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
-        hideStatusBar();
+
+        // 隐藏状态栏，隐藏虚拟按钮
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE;
+        decorView.setSystemUiVisibility(uiOptions);
 
         sharedPreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
         id = sharedPreferences.getString("id", null);
@@ -93,7 +97,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         for (int grantResult : grantResults) {
             if (grantResult != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "需要悬浮窗等权限才能正常使用", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "需要权限才能正常使用", Toast.LENGTH_LONG).show();
                 finish();
                 return;
             }
