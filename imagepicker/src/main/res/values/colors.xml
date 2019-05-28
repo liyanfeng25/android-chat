@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!--登录页面-->
-    <color name="black323643">#323643</color>
-    <color name="grey_c5ccd6">#c5ccd6</color>
-    <color name="grey_e1e3e8">#e1e3e8</color>
     <color name="black">#000000</color>
-    <color name="orange_f2c57d">#f2c57d</color>
-    <color name="white_fbfbfb">#fbfbfb</color>
-
-
     <color name="theme_body">#cc22292c</color>
     <color name="status_bar">#303135</color>
     <color name="transparent">#00000000</color>

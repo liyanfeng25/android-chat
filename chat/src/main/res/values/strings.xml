@@ -94,4 +94,11 @@
     <string name="check_update">检查更新</string>
     <string name="terms_of_use_and_privacy_policy">使用条款和隐私政策</string>
 
+    <!--个人中心-->
+    <string name="charge">充值</string>
+    <string name="cash_out">提现</string>
+    <string name="wallet">钱包</string>
+    <string name="red_packet_records">红包记录</string>
+    <string name="bank_card">银行卡</string>
+
 </resources>
