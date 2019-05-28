@@ -31,16 +31,16 @@ import cn.wildfirechat.chat.R;
 public class SMSLoginActivity extends WfcBaseActivity {
 
     @Bind(R.id.phone_number_editText)
-    private EditText phoneNumberEditText;
+    EditText phoneNumberEditText;
 
     @Bind(R.id.verify_code_editText)
-    private EditText verifyCodeEditText;
+    EditText verifyCodeEditText;
 
     @Bind(R.id.get_verify_code)
-    private TextView getVerifyCode;
+    TextView getVerifyCode;
 
     @Bind(R.id.btn_login)
-    private Button loginButton;
+    Button loginButton;
 
     private Handler handler = new Handler();
 
