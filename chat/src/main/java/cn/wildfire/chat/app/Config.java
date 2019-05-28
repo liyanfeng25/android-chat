@@ -8,11 +8,17 @@ import android.os.Environment;
 
 public interface Config {
 
-    String IM_SERVER_HOST = "wildfirechat.cn";
-    int IM_SERVER_PORT = 80;
-
     String APP_SERVER_HOST = "wildfirechat.cn";
     int APP_SERVER_PORT = 8888;
+
+    //获取验证码的URL
+    String GET_VERIFY_CODE_URL = "http://" + APP_SERVER_HOST + ":" + APP_SERVER_PORT + "/send_code";
+    //登录的URL
+    String SMS_LOGIN_URL = "http://" + APP_SERVER_HOST + ":" + APP_SERVER_PORT + "/login";
+
+
+    String IM_SERVER_HOST = "wildfirechat.cn";
+    int IM_SERVER_PORT = 80;
 
     String ICE_ADDRESS = "turn:turn.liyufan.win:3478";
     String ICE_USERNAME = "wfchat";

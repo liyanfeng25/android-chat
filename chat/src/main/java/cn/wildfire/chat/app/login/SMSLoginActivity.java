@@ -1,5 +1,8 @@
 package cn.wildfire.chat.app.login;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +27,10 @@ import butterknife.Bind;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import cn.wildfire.chat.app.Config;
+import cn.wildfire.chat.app.login.model.LoginResult;
+import cn.wildfire.chat.app.main.MainActivity;
+import cn.wildfire.chat.app.utils.LogHelper;
+import cn.wildfire.chat.kit.ChatManagerHolder;
 import cn.wildfire.chat.kit.WfcBaseActivity;
 import cn.wildfire.chat.kit.net.OKHttpHelper;
 import cn.wildfire.chat.kit.net.SimpleCallback;
@@ -47,7 +56,7 @@ public class SMSLoginActivity extends WfcBaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarFullTransparent();
+        //setStatusBarFullTransparent();
     }
 
     //监听手机号的变化
@@ -79,22 +88,27 @@ public class SMSLoginActivity extends WfcBaseActivity {
             }
         }, 60 * 1000);
 
-        String url = "http://" + Config.APP_SERVER_HOST + ":" + Config.APP_SERVER_PORT + "/send_code";
         Map<String, String> params = new HashMap<>();
         params.put("mobile", phoneNumberEditText.getText().toString());
-        OKHttpHelper.post(url, params, new SimpleCallback<StatusResult>() {
+
+        OKHttpHelper.post(Config.GET_VERIFY_CODE_URL, params, new SimpleCallback<StatusResult>() {
             @Override
             public void onUiSuccess(StatusResult statusResult) {
-                if (statusResult.getCode() == 0) {
+                if (statusResult.getCode() == ResultCode.SUCCESS) {
+
                     Toast.makeText(SMSLoginActivity.this, "发送验证码成功", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SMSLoginActivity.this, "发送验证码失败: " + statusResult.getCode(), Toast.LENGTH_SHORT).show();
+
+                    LogHelper.d("SMSLoginActivity:getVerifyCode|" + statusResult.getMessage());
+                    Toast.makeText(SMSLoginActivity.this, "发送验证码失败", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onUiFailure(int code, String msg) {
-                Toast.makeText(SMSLoginActivity.this, "发送验证码失败: " + msg, Toast.LENGTH_SHORT).show();
+
+                LogHelper.d("SMSLoginActivity:getVerifyCode|" + msg);
+                Toast.makeText(SMSLoginActivity.this, "发送验证码失败", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -103,6 +117,53 @@ public class SMSLoginActivity extends WfcBaseActivity {
     @OnClick(R.id.btn_login)
     void login() {
         String phoneNumber = phoneNumberEditText.getText().toString().trim();
+        String authCode = verifyCodeEditText.getText().toString().trim();
+
+        Map<String, String> params = new HashMap<>();
+        params.put("mobile", phoneNumber);
+        params.put("code", authCode);
+        try {
+            params.put("clientId", ChatManagerHolder.gChatManager.getClientId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(SMSLoginActivity.this, "网络出来问题了。。。", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        MaterialDialog dialog = new MaterialDialog.Builder(this)
+                .content("登录中...")
+                .progress(true, 100)
+                .cancelable(false)
+                .build();
+        dialog.show();
+        OKHttpHelper.post(Config.SMS_LOGIN_URL, params, new SimpleCallback<LoginResult>() {
+            @Override
+            public void onUiSuccess(LoginResult loginResult) {
+                if (isFinishing()) {
+                    return;
+                }
+                dialog.dismiss();
+                ChatManagerHolder.gChatManager.connect(loginResult.getUserId(), loginResult.getToken());
+                SharedPreferences sp = getSharedPreferences("config", Context.MODE_PRIVATE);
+                sp.edit()
+                        .putString("id", loginResult.getUserId())
+                        .putString("token", loginResult.getToken())
+                        .apply();
+                Intent intent = new Intent(SMSLoginActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onUiFailure(int code, String msg) {
+                if (isFinishing()) {
+                    return;
+                }
+                Toast.makeText(SMSLoginActivity.this, "登录失败：" + code + " " + msg, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
     }
 
     /**

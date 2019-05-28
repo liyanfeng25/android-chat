@@ -83,6 +83,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="271dp"
         android:layout_marginRight="46dp"
+        android:clickable="false"
         android:maxLines="1"
         android:text="@string/login_get_verify_code"
         android:textColor="@color/orange_f2c57d"
