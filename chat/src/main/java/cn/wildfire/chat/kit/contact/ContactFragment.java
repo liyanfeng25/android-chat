@@ -100,7 +100,7 @@ public class ContactFragment extends BaseContactFragment implements QuickIndexBa
     public void initHeaderViewHolders() {
         addHeaderViewHolder(FriendRequestViewHolder.class, new FriendRequestValue(contactViewModel.getUnreadFriendRequestCount()));
         addHeaderViewHolder(GroupViewHolder.class, new GroupValue());
-        addHeaderViewHolder(ChannelViewHolder.class, new HeaderValue());
+//        addHeaderViewHolder(ChannelViewHolder.class, new HeaderValue());
     }
 
     @Override
