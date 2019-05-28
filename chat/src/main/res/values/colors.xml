@@ -37,4 +37,14 @@
     <color name="side_bar_pressed">#BFBFBF</color>
 
     <color name="translucent_white">#61FFFFFF</color>
+
+    <!--登录页面-->
+
+    <color name="black323643">#323643</color>
+    <color name="black_4a4a4a">#4a4a4a</color>
+    <color name="grey_c5ccd6">#c5ccd6</color>
+    <color name="grey_e1e3e8">#e1e3e8</color>
+    <color name="orange_f2c57d">#f2c57d</color>
+    <color name="white_fbfbfb">#fbfbfb</color>
+
 </resources>

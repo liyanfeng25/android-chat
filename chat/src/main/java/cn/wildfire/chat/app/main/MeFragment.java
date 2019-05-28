@@ -41,11 +41,11 @@ public class MeFragment extends Fragment {
     @Bind(R.id.accountTextView)
     TextView accountTextView;
 
-    @Bind(R.id.notificationOptionItemView)
-    OptionItemView notificationOptionItem;
-
-    @Bind(R.id.settintOptionItemView)
-    OptionItemView settingOptionItem;
+//    @Bind(R.id.notificationOptionItemView)
+//    OptionItemView notificationOptionItem;
+//
+//    @Bind(R.id.settintOptionItemView)
+//    OptionItemView settingOptionItem;
 
     private UserViewModel userViewModel;
     private UserInfo userInfo;
@@ -106,9 +106,9 @@ public class MeFragment extends Fragment {
         startActivity(intent);
     }
 
-    @OnClick(R.id.settintOptionItemView)
-    void setting() {
-        Intent intent = new Intent(getActivity(), SettingActivity.class);
-        startActivity(intent);
-    }
+//    @OnClick(R.id.settintOptionItemView)
+//    void setting() {
+//        Intent intent = new Intent(getActivity(), SettingActivity.class);
+//        startActivity(intent);
+//    }
 }
