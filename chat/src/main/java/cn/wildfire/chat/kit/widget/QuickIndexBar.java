@@ -55,7 +55,7 @@ public class QuickIndexBar extends View {
         super(context, attrs, defStyleAttr);
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(getResources().getColor(R.color.side_bar));
+        mPaint.setColor(getResources().getColor(R.color.black));
         mPaint.setTextSize(mTextSize);
         //setBackgroundColor(Color.WHITE);
         //mPaint.setTypeface(Typeface.DEFAULT_BOLD);

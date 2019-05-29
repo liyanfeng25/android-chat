@@ -35,9 +35,9 @@ public abstract class WfcBaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setStatusBarFullTransparent();
 //        setSupportActionBar(toolbar);
-        if (showHomeMenuItem()) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+//        if (showHomeMenuItem()) {
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        }
         afterViews();
     }
 
