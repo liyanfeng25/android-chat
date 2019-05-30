@@ -224,10 +224,10 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
     public void onPageSelected(int position) {
         switch (position) {
             case 0:
-                bottomNavigationView.setSelectedItemId(R.id.conversation_list);
+                bottomNavigationView.setSelectedItemId(R.id.contact);
                 break;
             case 1:
-                bottomNavigationView.setSelectedItemId(R.id.contact);
+                bottomNavigationView.setSelectedItemId(R.id.conversation_list);
                 break;
             case 2:
                 bottomNavigationView.setSelectedItemId(R.id.discovery);
