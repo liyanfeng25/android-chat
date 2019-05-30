@@ -70,7 +70,7 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
 
     private ConversationListFragment conversationListFragment;
     private ContactFragment contactFragment;
-    private DiscoveryFragment discoveryFragment;
+//    private DiscoveryFragment discoveryFragment;
     private MeFragment meFragment;
 
     @Override
@@ -151,11 +151,11 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
 
         conversationListFragment = new ConversationListFragment();
         contactFragment = new ContactFragment();
-        discoveryFragment = new DiscoveryFragment();
+//        discoveryFragment = new DiscoveryFragment();
         meFragment = new MeFragment();
         mFragmentList.add(contactFragment);
         mFragmentList.add(conversationListFragment);
-        mFragmentList.add(discoveryFragment);
+//        mFragmentList.add(discoveryFragment);
         mFragmentList.add(meFragment);
         mVpContent.setAdapter(new HomeFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList));
         mVpContent.setOnPageChangeListener(this);
@@ -168,11 +168,11 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
                 case R.id.conversation_list:
                     mVpContent.setCurrentItem(1);
                     break;
-                case R.id.discovery:
-                    mVpContent.setCurrentItem(2);
-                    break;
+//                case R.id.discovery:
+//                    mVpContent.setCurrentItem(2);
+//                    break;
                 case R.id.me:
-                    mVpContent.setCurrentItem(3);
+                    mVpContent.setCurrentItem(2);
                     break;
                 default:
                     break;
@@ -229,10 +229,10 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
             case 1:
                 bottomNavigationView.setSelectedItemId(R.id.conversation_list);
                 break;
+//            case 2:
+//                bottomNavigationView.setSelectedItemId(R.id.discovery);
+//                break;
             case 2:
-                bottomNavigationView.setSelectedItemId(R.id.discovery);
-                break;
-            case 3:
                 bottomNavigationView.setSelectedItemId(R.id.me);
                 break;
             default:

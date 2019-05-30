@@ -2,10 +2,14 @@ package cn.wildfire.chat.kit;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.LayoutRes;
@@ -29,11 +33,34 @@ public abstract class WfcBaseActivity extends AppCompatActivity {
         beforeViews();
         setContentView(contentLayout());
         ButterKnife.bind(this);
+        setStatusBarFullTransparent();
 //        setSupportActionBar(toolbar);
 //        if (showHomeMenuItem()) {
 //            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        }
         afterViews();
+    }
+
+    /**
+     * 设置状态栏透明同时设置虚拟按钮隐藏
+     */
+    protected void setStatusBarFullTransparent() {
+
+        //5.0
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        } else if (Build.VERSION.SDK_INT >= 19) {//19表示4.4
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
     }
 
     @Override
