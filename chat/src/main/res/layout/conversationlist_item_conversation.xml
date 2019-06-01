@@ -11,14 +11,14 @@
     android:paddingRight="10dp">
 
     <RelativeLayout
-        android:layout_width="70dp"
-        android:layout_height="70dp">
+        android:layout_width="60dp"
+        android:layout_height="60dp">
 
         <!--头像-->
         <ImageView
             android:id="@+id/portraitImageView"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:src="@mipmap/ic_launcher" />
         <!--未读消息数-->

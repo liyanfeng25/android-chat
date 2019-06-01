@@ -33,6 +33,7 @@
 
     <cn.wildfire.chat.kit.widget.QuickIndexBar
         android:id="@+id/quickIndexBar"
+        android:visibility="gone"
         android:layout_width="20dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true" />

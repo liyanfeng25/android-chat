@@ -60,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="141dp">
         <ImageView
+            android:id="@+id/iv_mine_head"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:background="@mipmap/default_icon"
@@ -138,6 +139,7 @@
             android:layout_marginRight="25dp"/>
 
         <TextView
+            android:id="@+id/tv_mine_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/setting"

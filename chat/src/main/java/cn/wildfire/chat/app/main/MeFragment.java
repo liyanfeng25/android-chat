@@ -40,6 +40,10 @@ public class MeFragment extends Fragment {
     TextView nameTextView;
     @Bind(R.id.accountTextView)
     TextView accountTextView;
+    @Bind(R.id.iv_mine_head)
+    ImageView ivMineHead;
+    @Bind(R.id.tv_mine_setting)
+    TextView tvMineSetting;
 
 //    @Bind(R.id.notificationOptionItemView)
 //    OptionItemView notificationOptionItem;
@@ -99,16 +103,16 @@ public class MeFragment extends Fragment {
         userViewModel.userInfoLiveData().removeObserver(userInfoLiveDataObserver);
     }
 
-    @OnClick(R.id.meLinearLayout)
+    @OnClick(R.id.iv_mine_head)
     void showMyInfo() {
         Intent intent = new Intent(getActivity(), UserInfoActivity.class);
         intent.putExtra("userInfo", userInfo);
         startActivity(intent);
     }
 
-//    @OnClick(R.id.settintOptionItemView)
-//    void setting() {
-//        Intent intent = new Intent(getActivity(), SettingActivity.class);
-//        startActivity(intent);
-//    }
+    @OnClick(R.id.tv_mine_setting)
+    void setting() {
+        Intent intent = new Intent(getActivity(), SettingActivity.class);
+        startActivity(intent);
+    }
 }

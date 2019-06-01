@@ -238,7 +238,8 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
             default:
                 break;
         }
-        contactFragment.showQuickIndexBar(position == 1);
+        //注销通讯录界面快速导航栏
+//        contactFragment.showQuickIndexBar(position == 1);
     }
 
     @Override
@@ -247,7 +248,7 @@ public class MainActivity extends WfcBaseActivity implements ViewPager.OnPageCha
             //滚动过程中隐藏快速导航条
             contactFragment.showQuickIndexBar(false);
         } else {
-            contactFragment.showQuickIndexBar(true);
+            contactFragment.showQuickIndexBar(false);
         }
     }
 
