@@ -7,6 +7,7 @@
     android:background="@mipmap/back_green"
     android:orientation="vertical">
 
+    <include layout="@layout/toolbar"/>
     <!--内容-->
     <LinearLayout
         android:layout_margin="10dp"

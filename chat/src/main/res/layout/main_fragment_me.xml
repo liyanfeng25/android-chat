@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -56,87 +55,103 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:background="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="66dp"/>
-
+    
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:textColor="@color/black_4a4a4a"
-            android:background="@mipmap/button_login"
-            android:text="@string/charge"/>
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/black_4a4a4a"
-            android:gravity="center"
-            android:background="@mipmap/button_login"
-            android:text="@string/cash_out"/>
+        android:layout_height="141dp">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@mipmap/default_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"/>
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/wallet"
-        android:textSize="16sp"
-        android:textColor="@color/black_4a4a4a"
-        android:drawableLeft="@mipmap/ic_robot"
-        android:drawableRight="@mipmap/ic_robot"
-        android:drawablePadding="14dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/red_packet_records"
-        android:textSize="16sp"
-        android:textColor="@color/black_4a4a4a"
-        android:drawableLeft="@mipmap/ic_robot"
-        android:drawableRight="@mipmap/ic_robot"
-        android:drawablePadding="14dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/bank_card"
-        android:textSize="16sp"
-        android:textColor="@color/black_4a4a4a"
-        android:drawableLeft="@mipmap/ic_robot"
-        android:drawableRight="@mipmap/ic_robot"
-        android:drawablePadding="14dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textColor="@color/black_4a4a4a"
+                android:background="@mipmap/button_login"
+                android:text="@string/charge"/>
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/black_4a4a4a"
+                android:gravity="center"
+                android:background="@mipmap/button_login"
+                android:text="@string/cash_out"/>
+        </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/setting"
-        android:textSize="16sp"
-        android:textColor="@color/black_4a4a4a"
-        android:drawableLeft="@mipmap/ic_robot"
-        android:drawableRight="@mipmap/ic_robot"
-        android:drawablePadding="14dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wallet"
+            android:textSize="16sp"
+            android:textColor="@color/black_4a4a4a"
+            android:drawableLeft="@mipmap/icon_wallet"
+            android:drawableRight="@mipmap/arraw_right"
+            android:gravity="center_vertical"
+            android:drawablePadding="14dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/red_packet_records"
+            android:textSize="16sp"
+            android:textColor="@color/black_4a4a4a"
+            android:drawableLeft="@mipmap/icon_red"
+            android:drawableRight="@mipmap/arraw_right"
+            android:gravity="center_vertical"
+            android:drawablePadding="14dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bank_card"
+            android:textSize="16sp"
+            android:textColor="@color/black_4a4a4a"
+            android:drawableLeft="@mipmap/icon_bankcard"
+            android:drawableRight="@mipmap/arraw_right"
+            android:gravity="center_vertical"
+            android:drawablePadding="14dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting"
+            android:textSize="16sp"
+            android:textColor="@color/black_4a4a4a"
+            android:drawableLeft="@mipmap/icon_setting"
+            android:drawableRight="@mipmap/arraw_right"
+            android:gravity="center_vertical"
+            android:drawablePadding="14dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"/>
+    </LinearLayout>
+
 
 
 </LinearLayout>

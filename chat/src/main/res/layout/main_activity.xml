@@ -6,7 +6,8 @@
     android:background="@mipmap/back_green"
     android:orientation="vertical">
 
-    <!--<include layout="@layout/toolbar" />-->
+    <include layout="@layout/toolbar"
+        android:visibility="gone"/>
 
     <cn.wildfire.chat.kit.widget.ViewPagerFixed
         android:id="@+id/vpContent"

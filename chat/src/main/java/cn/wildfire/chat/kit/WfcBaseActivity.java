@@ -23,8 +23,8 @@ import butterknife.ButterKnife;
 import cn.wildfirechat.chat.R;
 
 public abstract class WfcBaseActivity extends AppCompatActivity {
-//    @Bind(R.id.toolbar)
-//    Toolbar toolbar;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,10 +34,10 @@ public abstract class WfcBaseActivity extends AppCompatActivity {
         setContentView(contentLayout());
         ButterKnife.bind(this);
         setStatusBarFullTransparent();
-//        setSupportActionBar(toolbar);
-//        if (showHomeMenuItem()) {
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        }
+        setSupportActionBar(toolbar);
+        if (showHomeMenuItem()) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         afterViews();
     }
 
