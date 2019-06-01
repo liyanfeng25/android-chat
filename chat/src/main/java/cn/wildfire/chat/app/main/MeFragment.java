@@ -80,7 +80,7 @@ public class MeFragment extends Fragment {
     }
 
     private void updateUserInfo(UserInfo userInfo) {
-        Glide.with(this).load(userInfo.portrait).apply(new RequestOptions().placeholder(R.mipmap.avatar_def).centerCrop()).into(portraitImageView);
+        Glide.with(this).load(userInfo.portrait).apply(new RequestOptions().placeholder(R.mipmap.avatar_def).centerCrop()).into(ivMineHead);
         nameTextView.setText(userInfo.displayName);
         accountTextView.setText("账号: " + userInfo.name);
     }
