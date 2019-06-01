@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cn.wildfire.chat.kit.widget.InputAwareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,10 +10,15 @@
 
     <include layout="@layout/toolbar"/>
     <!--内容-->
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp">
+    <LinearLayout
         android:id="@+id/contentLayout"
-        android:background="@drawable/shape_white_corner_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -37,4 +43,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </cn.wildfire.chat.kit.widget.InputAwareLayout>
